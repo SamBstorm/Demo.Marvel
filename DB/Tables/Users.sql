@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Users]
+(
+	[Id] INT NOT NULL IDENTITY,
+	[FirstName] NVARCHAR(16) NOT NULL,
+	[LastName] NVARCHAR(16) NOT NULL,
+	[Pseudo] NVARCHAR(16) NOT NULL,
+	[Password] VARBINARY(32) NOT NULL, /*SHA2_256*/
+	[Salt] NVARCHAR(8) NOT NULL,
+	CONSTRAINT PK_Users PRIMARY KEY ([Id]),
+	CONSTRAINT UK_Users_Pseudo UNIQUE ([Pseudo])
+)

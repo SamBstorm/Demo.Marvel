@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Teams]
+(
+	[Id] INT NOT NULL IDENTITY,
+	[Name] NVARCHAR(16) NOT NULL,
+	[UserId] INT NOT NULL,
+	[LeaderId] INT NULL, 
+    CONSTRAINT PK_Teams PRIMARY KEY ([Id]),
+	CONSTRAINT FK_Teams_Users FOREIGN KEY ([UserId]) REFERENCES [Users](Id)
+)
