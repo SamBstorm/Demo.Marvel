@@ -1,4 +1,5 @@
-﻿using API.DTO;
+﻿using API.DAO.Interface;
+using API.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using Tools.Connection;
 
 namespace API.DAO
 {
-    public class UserRepository : RepositoryBase
+    public class UserRepository : RepositoryBase, IUserRepository
     {
         public User Get(int id)
         {
@@ -42,6 +43,11 @@ namespace API.DAO
             command.AddParameter("pwd", password);
             Connection connection = new Connection(this.connectionString);
             return (int)(connection.ExecuteScalar(command));
+        }
+
+        public IEnumerable<User> Get()
+        {
+            throw new NotImplementedException();
         }
     }
 }
